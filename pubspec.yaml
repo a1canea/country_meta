@@ -1,0 +1,25 @@
+name: country_meta
+version: 0.0.1
+
+description: >
+  A Dart-only package that provides structured metadata for all countries, including ISO codes, phone codes, currencies, localized names, and flag image URLs.
+
+repository: https://github.com/a1canea/country_meta
+homepage: https://pub.dev/packages/country_meta
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+# No runtime dependencies yet
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^3.0.0
+
+topics:
+  - iso-codes
+  - localization
+  - flags
+  - country
+  - phone-codes
