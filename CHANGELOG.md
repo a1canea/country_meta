@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## \[1.0.0] - 
+- Stable API release.
+- Added **emoji flags** (strict ISO only).
+- Added **direct flag access** without CountryRepository:
+    - `FlagEmojiBuilder.build('US')` → 🇺🇸
+    - `FlagUrlBuilder.svg('US')`, `.webp('US', width: ...)`, `.jpeg('US', height: ...)`
+- Updated `README.md` with examples and direct-access section.
+- Updated `example/main.dart` to demonstrate emoji + direct URL use.
+
 ## \[0.0.1] - Initial Release
 
 ### Added

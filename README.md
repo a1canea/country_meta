@@ -2,7 +2,7 @@
 
 [![Pub Version](https://img.shields.io/pub/v/country_meta.svg)](https://pub.dev/packages/country_meta)
 
-A **Dart-only** package providing metadata for countries with ISO codes, localized names, currencies, phone codes, and **flag image utilities** (SVG, WebP, JPEG).
+A **Dart-only** package providing metadata for countries with ISO codes, localized names, currencies, phone codes, and **flag image utilities** (SVG, WebP, JPEG, Emoji).
 
 ---
 
@@ -13,42 +13,10 @@ A **Dart-only** package providing metadata for countries with ISO codes, localiz
 * 💱 Currencies and symbols
 * 🌐 Localized country names: **English**, **Russian**, **Arabic**
 * 🔎 Country lookup by code or locale
-* 🏁 Flag URL builder with **SVG / WebP / JPEG** support
+* 🏁 Flag support: Emoji, SVG / WebP / JPEG (FlagCDN)
 * 🧪 Unit tests for model serialization, equality, and indexing
 
 > 🇺🇳 Flag icons provided by [flagpedia.net](https://flagpedia.net)
-
----
-
-## 📁 Project Structure
-
-```text
-lib/
-├── country_meta.dart
-└── src/
-    ├── model/
-    │   └── country_meta.dart
-    ├── data/
-    │   └── country_repository.dart
-    ├── res/
-    │   ├── data/
-    │   │   └── countries_raw_data.dart
-    │   └── names/
-    │       ├── country_names_en.dart
-    │       ├── country_names_ru.dart
-    │       ├── country_names_ar.dart
-    ├── localization/
-    │   ├── localized_name.dart
-    │   └── country_name.dart
-    └── flags/
-        ├── flag_format.dart
-        ├── flag_width.dart
-        ├── flag_height.dart
-        ├── flag_url_builder.dart
-        └── country_flag.dart
-```
-
----
 
 ## 🚀 Usage
 
@@ -84,6 +52,28 @@ final webp = country?.flagUrl(
   format: FlagImageFormat.webp,
   width: FlagWidth.w320,
 );
+```
+
+### 😀 Emoji Flag
+
+```dart
+final emoji = country?.flagEmoji();
+print(emoji); // 🇺🇸
+```
+
+### ⚡️ Direct Flag Access
+You don’t need to resolve a full CountryMeta to show a flag.
+Both emoji and image URLs can be generated directly from ISO alpha-2 codes.
+
+```dart
+// Emoji flags
+print(FlagEmojiBuilder.build('US')); // 🇺🇸
+print(FlagEmojiBuilder.build('DE')); // 🇩🇪
+
+// Flag URLs
+print(FlagUrlBuilder.svg('US'));                // https://flagcdn.com/us.svg
+print(FlagUrlBuilder.webp('US', width: FlagWidth.w40));
+print(FlagUrlBuilder.jpeg('JP', height: FlagHeight.h80));
 ```
 
 ---

@@ -1,4 +1,5 @@
 import '../model/country_meta.dart';
+import 'flag_emoji_builder.dart';
 import 'flag_heigth.dart';
 import 'flag_image_format.dart';
 import 'flag_url_builder.dart';
@@ -21,4 +22,7 @@ extension CountryMetaFlag on CountryMeta {
       height: height,
     );
   }
+
+  /// Emoji flag (offline, zero bundle size). Empty string if invalid ISO alpha-2.
+  String flagEmoji() => FlagEmojiBuilder.build(isoAlpha2);
 }
